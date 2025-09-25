@@ -1,0 +1,15 @@
+# Arquivos de cache e de sessão do Neovim
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Arquivos de log
+*.log
+
+# Diretório de dados do lazy.nvim (ou outro plugin manager)
+# É melhor deixar o plugin manager reinstalar os plugins em cada máquina
+/lazy-lock.json
+
+# Se você usar packer
+# /plugin/packer_compiled.lua
