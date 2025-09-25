@@ -7,6 +7,31 @@ return {
       "MunifTanjim/nui.nvim",
       "nvim-tree/nvim-web-devicons",
     },
+    config = function()
+      require("neo-tree").setup({
+        -- Configuração para mostrar arquivos ocultos por padrão (Opção 1)
+        filesystem = {
+          filtered_items = {
+            visible = true,
+            hide_dotfiles = false, -- <== MUDE ISTO PARA 'false'
+            hide_gitignored = true,
+          },
+        },
+        -- Você pode adicionar outras configurações do neo-tree aqui
+      })
+
+      -- Atalho para abrir/fechar o neo-tree (exemplo)
+      vim.keymap.set("n", "<leader>e", ":Neotree toggle<CR>", {
+        desc = "Toggle Neo-tree",
+        silent = true,
+      })
+
+      -- Atalho para mostrar/esconder arquivos ocultos (Opção 2 - RECOMENDADO)
+      vim.keymap.set("n", "<leader>h", ":Neotree toggle_hidden<CR>", {
+        desc = "[H]ide/Show hidden files in Neo-tree",
+        silent = true,
+      })
+    end,
   },
   {
     "antosha417/nvim-lsp-file-operations",
@@ -35,8 +60,7 @@ return {
           },
         },
       })
-    vim.keymap.set('n', '<leader>e', ':Neotree toggle position=left<CR>', {noremap = true, silent =true})  
-  end,
-
+      vim.keymap.set("n", "<leader>e", ":Neotree toggle position=left<CR>", { noremap = true, silent = true })
+    end,
   },
 }
