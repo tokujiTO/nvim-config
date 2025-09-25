@@ -1,10 +1,14 @@
+local function enable_transparency()
+	vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+	vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+end
+
 return {
-  'folke/tokyonight.nvim',
-  lazy = false,
-  priority = 1000,
-  -- A chave 'opts' não é necessária se você usar 'config' para isso
-  config = function()
-    -- O comando para definir o tema DEVE estar aqui dentro
-    vim.cmd.colorscheme 'tokyonight-storm'
-  end,
+	"getomni/neovim",
+	lazy = false,
+	priority = 1000,
+	config = function()
+		vim.cmd.colorscheme("omni")
+		enable_transparency()
+	end,
 }
